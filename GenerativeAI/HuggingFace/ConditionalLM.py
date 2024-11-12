@@ -22,12 +22,11 @@ print(f"Prefixed input text (for summarization): '{input_text}'")
 input_ids = tokenizer.encode(input_text, return_tensors='pt', max_length=512, truncation=True)
 #print(f"Tokenized input IDs: {input_ids}")
 
-print("Generating summary...")
 summary_ids = model.generate(input_ids, max_length=50, num_beams=5, early_stopping=True)
 
 
 summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
-print("\nSummary generated:")
+print("\nSummary:")
 print(summary)
 print("\n")
 
